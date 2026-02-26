@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Self Drive Cars in Jaipur | Jaipur Drive Company</title>
+
+<meta name="description" content="Book self drive cars in Jaipur. Sedan, SUV, Luxury & Innova available. Best prices, instant WhatsApp booking.">
+<meta name="keywords" content="Self drive Jaipur, Rent car Jaipur, Jaipur car rental self drive">
+<meta name="author" content="Jaipur Drive Company">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --pink:#ff4d6d;
+  --pink-dark:#ff2c55;
+  --dark:#0f172a;
+  --light:#f8fafc;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:var(--light);
+  color:#111;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+/* HEADER */
+.header{
+  background:linear-gradient(135deg,var(--dark),#1e293b);
+  color:white;
+  text-align:center;
+  padding:70px 20px;
+}
+
+.header h1{
+  font-size:clamp(2rem,5vw,3rem);
+  margin-bottom:10px;
+}
+
+/* SECTION */
+.section{
+  padding:80px 6%;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* CAR GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  margin-bottom:60px;
+}
+
+.car-card{
+  background:white;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 15px 40px rgba(0,0,0,0.06);
+  transition:0.4s;
+  cursor:pointer;
+  border:2px solid transparent;
+}
+
+.car-card:hover{
+  transform:translateY(-8px);
+  border-color:var(--pink);
+  box-shadow:0 25px 60px rgba(255,77,109,0.2);
+}
+
+.car-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+.car-info{
+  padding:20px;
+}
+
+.car-info h3{
+  color:var(--pink);
+  margin-bottom:8px;
+}
+
+.price{
+  font-weight:600;
+  margin-top:5px;
+}
+
+/* FORM */
+.form-box{
+  background:white;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 25px 60px rgba(0,0,0,0.08);
+}
+
+.form-box h2{
+  text-align:center;
+  color:var(--pink);
+  margin-bottom:30px;
+}
+
+.form-group{
+  margin-bottom:20px;
+}
+
+label{
+  display:block;
+  margin-bottom:6px;
+  font-weight:500;
+}
+
+input, select{
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #ddd;
+  font-size:1rem;
+}
+
+input:focus, select:focus{
+  border-color:var(--pink);
+  outline:none;
+  box-shadow:0 0 0 3px rgba(255,77,109,0.15);
+}
+
+button{
+  width:100%;
+  padding:18px;
+  background:var(--pink);
+  color:white;
+  border:none;
+  border-radius:50px;
+  font-size:1.1rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:var(--pink-dark);
+  transform:translateY(-4px);
+  box-shadow:0 15px 35px rgba(255,77,109,0.35);
+}
+
+.back{
+  text-align:center;
+  margin-top:20px;
+}
+
+.back a{
+  color:var(--pink);
+  text-decoration:none;
+  font-weight:500;
+}
+
+/* FOOTER */
+footer{
+  background:var(--dark);
+  color:#aaa;
+  text-align:center;
+  padding:40px;
+  margin-top:60px;
+  font-size:0.95rem;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>Self-Drive Cars in Jaipur</h1>
+  <p>Freedom to Explore • No Driver • Complete Control</p>
+</div>
+
+<section class="section">
+
+  <!-- CAR OPTIONS -->
+  <div class="grid">
+
+    <div class="car-card" onclick="selectCar('Sedan')">
+      <img src="https://www.rushlane.com/wp-content/uploads/2024/02/2024-maruti-swift-india-launch-9-may-2024-5.jpg">
+      <div class="car-info">
+        <h3>Sedan</h3>
+        <p>Swift Dzire / Honda Amaze</p>
+        <div class="price">Starting ₹1,499/day</div>
+      </div>
+    </div>
+
+    <div class="car-card" onclick="selectCar('SUV')">
+      <img src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Maruti/Brezza/10387/1753880635233/exterior-image-164.jpg">
+      <div class="car-info">
+        <h3>SUV</h3>
+        <p>Creta / Brezza</p>
+        <div class="price">Starting ₹2,299/day</div>
+      </div>
+    </div>
+
+    <div class="car-card" onclick="selectCar('Innova Crysta')">
+      <img src="https://thuthu.co.za/wp-content/uploads/2026/02/New-Toyota-Innova-Crysta-2026-Debuts.jpg">
+      <div class="car-info">
+        <h3>Innova Crysta</h3>
+        <p>7 Seater Premium</p>
+        <div class="price">Starting ₹3,499/day</div>
+      </div>
+    </div>
+
+    <div class="car-card" onclick="selectCar('Luxury')">
+      <img src="https://images10.gaadi.com/usedcar_image/5136829/original/processed_56149721-83c5-4921-b810-6baf486a3ff5.jpg?imwidth=640">
+      <div class="car-info">
+        <h3>Luxury</h3>
+        <p>BMW / Audi</p>
+        <div class="price">On Request</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOOKING FORM -->
+  <div class="form-box">
+    <h2>Book Your Self-Drive Car</h2>
+
+    <form id="selfDriveForm">
+
+      <div class="form-group">
+        <label>Selected Car</label>
+        <input type="text" id="selectedCar" readonly required>
+      </div>
+
+      <div class="form-group">
+        <label>Your Name *</label>
+        <input type="text" id="name" required>
+      </div>
+
+      <div class="form-group">
+        <label>Phone Number *</label>
+        <input type="tel" id="phone" pattern="[0-9]{10}" required>
+      </div>
+
+      <div class="form-group">
+        <label>Pickup Date *</label>
+        <input type="date" id="date" required>
+      </div>
+
+      <div class="form-group">
+        <label>Return Date *</label>
+        <input type="date" id="returnDate" required>
+      </div>
+
+      <div class="form-group">
+        <label>Pickup Location *</label>
+        <input type="text" id="pickup" required>
+      </div>
+
+      <button type="submit">Send Self-Drive Booking</button>
+
+    </form>
+
+    <div class="back">
+      <a href="index.html">← Back to Home</a>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+© 2026 Jaipur Drive Company – Self Drive Rental Jaipur
+</footer>
+
+<script>
+// prevent past dates
+let today = new Date().toISOString().split("T")[0];
+document.getElementById("date").setAttribute("min", today);
+document.getElementById("returnDate").setAttribute("min", today);
+
+function selectCar(car){
+  document.getElementById("selectedCar").value = car;
+  window.scrollTo({ top: document.querySelector(".form-box").offsetTop - 60, behavior: 'smooth' });
+}
+
+document.getElementById("selfDriveForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  let car = document.getElementById("selectedCar").value;
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let date = document.getElementById("date").value;
+  let returnDate = document.getElementById("returnDate").value;
+  let pickup = document.getElementById("pickup").value;
+
+  let message = 
+`Hi Jaipur Drive Company,
+
+🚗 Self-Drive Booking Request
+
+Car: ${car}
+Name: ${name}
+Phone: ${phone}
+Pickup Date: ${date}
+Return Date: ${returnDate}
+Pickup Location: ${pickup}`;
+
+  let encoded = encodeURIComponent(message);
+  window.open(`https://wa.me/8742047047?text=${encoded}`, '_blank');
+});
+</script>
+
+</body>
+</html>

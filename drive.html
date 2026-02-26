@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Book Car with Driver | Jaipur Drive Company</title>
+
+<meta name="description" content="Book premium car with driver in Jaipur. Safe, affordable and professional chauffeur service available 24x7.">
+<meta name="keywords" content="Car with driver Jaipur, Jaipur taxi booking, Chauffeur service Jaipur">
+<meta name="author" content="Jaipur Drive Company">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --pink:#ff4d6d;
+  --pink-dark:#ff2c55;
+  --dark:#0f172a;
+  --light:#f8fafc;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--light);
+  color:#111;
+}
+
+/* HEADER */
+.header{
+  background:linear-gradient(135deg,var(--dark),#1e293b);
+  color:white;
+  text-align:center;
+  padding:60px 20px 50px;
+}
+
+.header h1{
+  font-size:clamp(2rem,5vw,3rem);
+  margin-bottom:10px;
+}
+
+.header p{
+  opacity:0.9;
+}
+
+/* FORM SECTION */
+.section{
+  padding:70px 6%;
+  display:flex;
+  justify-content:center;
+}
+
+.form-box{
+  background:white;
+  padding:45px;
+  border-radius:20px;
+  width:100%;
+  max-width:750px;
+  box-shadow:0 25px 60px rgba(0,0,0,0.08);
+}
+
+.form-box h2{
+  text-align:center;
+  margin-bottom:35px;
+  color:var(--pink);
+  font-size:1.9rem;
+}
+
+.form-group{
+  margin-bottom:22px;
+}
+
+label{
+  display:block;
+  margin-bottom:6px;
+  font-weight:500;
+}
+
+input, select, textarea{
+  width:100%;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #ddd;
+  font-size:1rem;
+  transition:0.3s;
+}
+
+input:focus, select:focus, textarea:focus{
+  border-color:var(--pink);
+  outline:none;
+  box-shadow:0 0 0 3px rgba(255,77,109,0.15);
+}
+
+textarea{
+  resize:none;
+}
+
+button{
+  width:100%;
+  padding:18px;
+  background:var(--pink);
+  color:white;
+  border:none;
+  border-radius:50px;
+  font-size:1.1rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:var(--pink-dark);
+  transform:translateY(-4px);
+  box-shadow:0 15px 35px rgba(255,77,109,0.35);
+}
+
+button.loading{
+  opacity:0.7;
+  pointer-events:none;
+}
+
+.back-home{
+  text-align:center;
+  margin-top:25px;
+}
+
+.back-home a{
+  text-decoration:none;
+  color:var(--pink);
+  font-weight:500;
+}
+
+/* FOOTER */
+footer{
+  background:var(--dark);
+  color:#aaa;
+  text-align:center;
+  padding:40px 20px;
+  margin-top:40px;
+  font-size:0.95rem;
+}
+
+@media(max-width:768px){
+  .section{
+    padding:50px 5%;
+  }
+  .form-box{
+    padding:30px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>Book Car with Driver</h1>
+  <p>Professional Chauffeur Service – Safe • Reliable • Affordable</p>
+</div>
+
+<section class="section">
+  <div class="form-box">
+    <h2>Enter Booking Details</h2>
+
+    <form id="bookingForm">
+
+      <div class="form-group">
+        <label>Full Name *</label>
+        <input type="text" id="name" required>
+      </div>
+
+      <div class="form-group">
+        <label>Phone Number *</label>
+        <input type="tel" id="phone" pattern="[0-9]{10}" placeholder="10 digit number" required>
+      </div>
+
+      <div class="form-group">
+        <label>Pickup Location *</label>
+        <input type="text" id="pickup" required>
+      </div>
+
+      <div class="form-group">
+        <label>Drop Location *</label>
+        <input type="text" id="drop" required>
+      </div>
+
+      <div class="form-group">
+        <label>Pickup Date *</label>
+        <input type="date" id="date" required>
+      </div>
+
+      <div class="form-group">
+        <label>Pickup Time *</label>
+        <input type="time" id="time" required>
+      </div>
+
+      <div class="form-group">
+        <label>Select Car Type</label>
+        <select id="car">
+          <option>Sedan</option>
+          <option>SUV</option>
+          <option>Innova Crysta</option>
+          <option>Luxury</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Additional Message</label>
+        <textarea id="message" rows="3"></textarea>
+      </div>
+
+      <button type="submit" id="submitBtn">Send Booking on WhatsApp</button>
+
+    </form>
+
+    <div class="back-home">
+      <a href="index.html">← Back to Home</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 Jaipur Drive Company – Premium Car Rental Service
+</footer>
+
+<script>
+// Disable past dates
+let today = new Date().toISOString().split("T")[0];
+document.getElementById("date").setAttribute("min", today);
+
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const btn = document.getElementById("submitBtn");
+  btn.classList.add("loading");
+  btn.innerText = "Redirecting to WhatsApp...";
+
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let pickup = document.getElementById("pickup").value;
+  let drop = document.getElementById("drop").value;
+  let date = document.getElementById("date").value;
+  let time = document.getElementById("time").value;
+  let car = document.getElementById("car").value;
+  let message = document.getElementById("message").value;
+
+  let whatsappMessage = 
+`Hi Jaipur Drive Company,
+
+🚗 Car with Driver Booking
+
+Name: ${name}
+Phone: ${phone}
+Pickup: ${pickup}
+Drop: ${drop}
+Date: ${date}
+Time: ${time}
+Car Type: ${car}
+Message: ${message}`;
+
+  let encodedMessage = encodeURIComponent(whatsappMessage);
+
+  window.open(`https://wa.me/8742047047?text=${encodedMessage}`, '_blank');
+
+  setTimeout(()=>{
+    btn.classList.remove("loading");
+    btn.innerText = "Send Booking on WhatsApp";
+  },2000);
+});
+</script>
+
+</body>
+</html>
